@@ -3,6 +3,7 @@ package base;
 import java.util.*;
 
 public class Person {
+    public int id;
     public int personID;
     public static ArrayList<Person> personList = new ArrayList<>();
     public String name;
