@@ -28,7 +28,7 @@ public class PresentedCourse {
     }
 
     public void addStudent(int studentID) {
-        if (this.studentID.size() >= this.capacity)
+        if (this.studentID.size() <= this.capacity)
             this.studentID.add(studentID);
         else
             System.out.println("Capacity of class is too full.");

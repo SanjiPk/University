@@ -13,29 +13,51 @@ public class Main {
         Person david = new Person("David", "4444");
         Person alice = new Person("Alice", "5555");
 
-        Student saraStu = new Student(sara.personID, 1403, 1);
-        Student johnStu = new Student(john.personID, 1400, 1);
-        Student charlieStu = new Student(charlie.personID, 1401, 2);
+        Student saraStu = new Student(sara.id, 1403, math.id);
+        Student johnStu = new Student(john.id, 1400, math.id);
+        Student charlieStu = new Student(charlie.id, 1401, english.id);
 
-        Professor davidPro = new Professor(321, 1);
-        Professor alicePro = new Professor(123, 2);
+        Professor davidPro = new Professor(david.id, 1);
+        Professor alicePro = new Professor(alice.id, 2);
 
         Course mathCourse = new Course("Mathematics 1", 4);
         Course englishCourse = new Course("English", 1);
         Course physicCourse = new Course("Physic", 3);
 
-        PresentedCourse mathP = new PresentedCourse(1, 321, 25);
-        PresentedCourse englishP = new PresentedCourse(2, 321, 12);
-        PresentedCourse physicP = new PresentedCourse(3, 123, 12);
+        PresentedCourse mathP = new PresentedCourse(mathCourse.id, davidPro.id, 25);
+        PresentedCourse englishP = new PresentedCourse(englishCourse.id, davidPro.id, 12);
+        PresentedCourse physicP = new PresentedCourse(physicCourse.id, alicePro.id, 12);
 
-        mathP.addStudent(saraStu.personID);
-        mathP.addStudent(johnStu.personID);
+        mathP.addStudent(saraStu.id);
+        mathP.addStudent(johnStu.id);
 
-        englishP.addStudent(saraStu.personID);
-        englishP.addStudent(charlieStu.personID);
-        englishP.addStudent(johnStu.personID);
+        englishP.addStudent(saraStu.id);
+        englishP.addStudent(charlieStu.id);
+        englishP.addStudent(johnStu.id);
 
-        physicP.addStudent(charlieStu.personID);
+        physicP.addStudent(charlieStu.id);
 
+        Transcript saraTranscript = new Transcript(saraStu.id);
+        Transcript johnTranscript = new Transcript(johnStu.id);
+        Transcript charlieTranscript = new Transcript(charlieStu.id);
+
+        saraTranscript.setGrade(mathP.id, 18.34);
+        saraTranscript.setGrade(englishP.id, 12.5);
+
+        johnTranscript.setGrade(mathP.id, 17.5);
+        johnTranscript.setGrade(englishP.id, 20);
+
+        charlieTranscript.setGrade(englishP.id, 14);
+        charlieTranscript.setGrade(physicCourse.id, 20);
+
+        saraTranscript.printTranscript();
+        johnTranscript.printTranscript();
+        charlieTranscript.printTranscript();
+
+        System.out.println("--------------");
+
+        System.out.println(sara.name + " : " + saraTranscript.getGPA());
+        System.out.println(john.name + " : " + johnTranscript.getGPA());
+        System.out.println(charlie.name + " : " + charlieTranscript.getGPA());
     }
 }

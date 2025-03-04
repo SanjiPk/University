@@ -43,11 +43,14 @@ public class Transcript {
 
     public double getGPA() {
         double gpa = 0.0;
+        int units = 0;
         for (Map.Entry<Integer, Double> entry : transcript.entrySet()) {
             Course c = Course.findById(entry.getKey());
-            if (c != null)
+            if (c != null) {
                 gpa += entry.getValue() * c.unit;
+                units += c.unit;
+            }
         }
-        return gpa / transcript.size();
+        return gpa / units;
     }
 }

@@ -11,6 +11,7 @@ public class Course {
     public Course(String title, int unit) {
         this.title = title;
         this.unit = unit;
+        courseList.add(this);
         id = courseList.size();
     }
 

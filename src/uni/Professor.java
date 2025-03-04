@@ -11,6 +11,7 @@ public class Professor {
     public Professor(int personID, int majorID) {
         this.personID = personID;
         this.majorID = majorID;
+        professorList.add(this);
         id = professorList.size();
     }
 
