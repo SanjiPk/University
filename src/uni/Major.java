@@ -6,11 +6,11 @@ public class Major {
     public int id;
     public static ArrayList<Major> majorList = new ArrayList<>();
     public String name;
-    public final int maxCapacity;
+    public final int capacity;
     public int numberOfStudents = 0;
 
     public Major(String name, int maxStudentNumber) {
-        maxCapacity = maxStudentNumber;
+        capacity = maxStudentNumber;
         this.name = name;
         majorList.add(Major.this);
         id = majorList.size();
@@ -24,7 +24,7 @@ public class Major {
     }
 
     public void addStudent() {
-        if (numberOfStudents < maxCapacity)
+        if (numberOfStudents < capacity)
             numberOfStudents++;
         else 
             System.out.println("there isn't enough capacity for another student");

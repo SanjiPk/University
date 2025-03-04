@@ -17,6 +17,8 @@ public class Student {
         Major major = Major.findById(majorID);
         major.addStudent();
         setStudentCode(major.numberOfStudents);
+        studentList.add(this);
+        id = studentList.size();
     }
     public static Student findById(int id) {
         for (Student student : studentList)
