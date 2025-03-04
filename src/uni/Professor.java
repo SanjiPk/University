@@ -11,11 +11,12 @@ public class Professor {
     public Professor(int personID, int majorID) {
         this.personID = personID;
         this.majorID = majorID;
+        id = professorList.size();
     }
 
     public static Professor findById(int ID) {
         for (Professor professor : professorList)
-            if (ID == professor.personID)
+            if (ID == professor.id)
                 return professor;
         return null;
     }
