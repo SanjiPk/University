@@ -1,10 +1,10 @@
 package base;
 
-import java.util.List;
+import java.util.*;
 
 public class Person {
     public int personID;
-    public static List<Person> personList;
+    public static ArrayList<Person> personList = new ArrayList<>();
     public String name;
     public final String nationalID;
 

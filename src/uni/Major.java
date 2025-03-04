@@ -1,10 +1,10 @@
 package uni;
 
-import java.util.List;
+import java.util.*;
 
 public class Major {
-    public int majorID;
-    public static List<Major> majorList;
+    public int id;
+    public static ArrayList<Major> majorList = new ArrayList<>();
     public String name;
     public final int maxCapacity;
     public int numberOfStudents = 0;
@@ -13,13 +13,20 @@ public class Major {
         maxCapacity = maxStudentNumber;
         this.name = name;
         majorList.add(Major.this);
-        majorID = majorList.size();
+        id = majorList.size();
     }
 
     public static Major findById(int id) {
         for (Major major : majorList)
-            if (major.majorID == id)
+            if (major.id == id)
                 return major;
         return null;
+    }
+
+    public void addStudent() {
+        if (numberOfStudents < maxCapacity)
+            numberOfStudents++;
+        else 
+            System.out.println("there isn't enough capacity for another student");
     }
 }
